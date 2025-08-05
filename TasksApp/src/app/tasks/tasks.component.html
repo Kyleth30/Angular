@@ -1,0 +1,20 @@
+@if (newTask) {
+<app-new-task [userId]="userId" (closeDialog)="onCloseDialog()"></app-new-task>
+}
+
+<section id="tasks">
+  <header>
+    <h2>{{ name }}'s Tasks</h2>
+    <menu>
+      <button (click)="onNewTask()">Add task</button>
+    </menu>
+  </header>
+
+  <ul>
+    <li>
+      @for (task of selectedUserTasks; track task.id) {
+      <app-task [task]="task"></app-task>
+      }
+    </li>
+  </ul>
+</section>
